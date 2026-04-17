@@ -1,12 +1,12 @@
 # Sales-Store-Analysis-SQL
-# Overview
+## Overview
 Analysis of a sales store performance using SQL Query based on factors such as category, gender, itempurchased, season, profit and basically communicating with the dat set.
-# Data Source
+## Data Source
 The data was gotten from Kaggle
 [Download here] (https://www.kaggle.com/datasets/hassanjameelahmed/store-sales)
 
-# SQL Queries
-# 1a. Amount by category
+## SQL Queries
+### 1a. Amount by category
 ![1](https://github.com/user-attachments/assets/16134e51-88b2-4314-bfec-7e7ef98689db)
 # 1b. Table designed in excel
 ![2](https://github.com/user-attachments/assets/0e24bc6b-e8a1-480d-b8bc-ab34e39e8f72)
