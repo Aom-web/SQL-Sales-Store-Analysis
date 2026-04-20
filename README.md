@@ -1,4 +1,4 @@
-# Sales-Store-Analysis-SQL
+## Sales-Store-Analysis-SQL
 ## Overview
 Analysis of a sales store performance using SQL Query based on factors such as category, gender, itempurchased, season, profit and basically communicating with the dat set.
 ## Data Source
