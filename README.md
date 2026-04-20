@@ -6,23 +6,115 @@ The data was gotten from Kaggle
 [Download here] (https://www.kaggle.com/datasets/hassanjameelahmed/store-sales)
 
 ## SQL Queries
-### 1a. Amount by category
-![1](https://github.com/user-attachments/assets/16134e51-88b2-4314-bfec-7e7ef98689db)
-### 1b. Table designed in excel with reduced decimal place
-![2](https://github.com/user-attachments/assets/0e24bc6b-e8a1-480d-b8bc-ab34e39e8f72)
-### 2a. Amount by gender
-![3](https://github.com/user-attachments/assets/fd595572-8f89-42bc-a788-8015e614e263)
-### 2b. Table designed in excel with reduced decimal place
-![4](https://github.com/user-attachments/assets/39c0015e-7928-4e96-989c-de42682cef83)
-### 3a. Amount by itempurchased > 100000
-![5](https://github.com/user-attachments/assets/bfc34011-348a-4c19-861e-86faef16b1d3)
-### 3b. Table designed in excel with reduced decimal place
-![6](https://github.com/user-attachments/assets/4ccaa459-6d04-4bf7-a2fc-a946eb002ab0)
-### 4a. Amount by season
-![7](https://github.com/user-attachments/assets/09d9883c-5cbe-461c-9755-52cb504d24f1)
-### 4b. Table designed in excel with reduced decimal place
-![8](https://github.com/user-attachments/assets/2ed97f36-e20d-4afe-bcbd-194c62ed06a2)
-### 5a. Total profit
-![9](https://github.com/user-attachments/assets/c7eaef0a-63c1-470c-b6cb-1ce7212e426f)
-### 5b. Table designed in excel
-![10](https://github.com/user-attachments/assets/6f64a6ba-fb96-4b55-bdc6-c6d8e83d3c94)
+### 1. What category brought in the most sales?
+
+```SQL
+SELECT Category, SUM(Amount) AS "Total Amount"
+FROM store_sales
+GROUP BY Category
+ORDER BY SUM(Amount) DESC
+LIMIT 1;
+```
+
+
+### 2. What gender brought in the most sales?
+
+```SQL
+SELECT Gender, SUM(Amount) AS "Total Amount"
+FROM store_sales
+GROUP BY Gender
+ORDER BY SUM(Amount) DESC
+LIMIT 1;
+```
+
+### 3. What product did the male customer buy the most?
+
+```SQL
+SELECT ItemPurchased, SUM(Amount) AS "Total Amount"
+FROM store_sales
+WHERE Gender = 'Male'
+GROUP BY ItemPurchased
+ORDER BY SUM(AMOUNT) DESC
+LIMIT 1;
+```
+
+### 4. What was the top 4 purchased item?
+
+```SQL
+SELECT ItemPurchased, SUM(Amount) AS "Total Amount"
+FROM store_sales
+GROUP BY ItemPurchased
+ORDER BY SUM(Amount) DESC
+LIMIT 4;
+```
+
+### 5. What season brought in sales of over 370000?
+
+```SQL
+SELECT Season, SUM(Amount) AS "Total Amount"
+FROM store_sales
+GROUP BY Season
+HAVING SUM(Amount) > 370000;
+```
+
+### 6. Did the customers pay by cash the most, or by payment on delivery?
+
+```SQL
+SELECT PaymentMethod, SUM(Amount) AS "Total Amount"
+FROM store_sales
+GROUP BY PaymentMethod
+ORDER BY SUM(Amount) DESC
+LIMIT 1;
+```
+
+### 7. What gender paid with cash on delivery the most?
+
+```SQL
+SELECT PaymentMethod, Gender, SUM(Amount) AS "Total Amount"
+FROM store_sales
+WHERE PaymentMethod = 'Cash on Delivery'
+GROUP BY Gender
+ORDER BY SUM(Amount) DESC
+LIMIT 1;
+```
+
+### 8. What season of the year did the female customers shop the most?
+
+```SQL
+SELECT Season, SUM(Amount) AS "Total Amount"
+FROM store_sales
+WHERE Gender = 'Female'
+GROUP BY Season
+ORDER BY SUM(Amount) DESC
+LIMIT 1;
+```
+
+### 9. Which gproduct rated the lowest?
+
+```SQL
+SELECT ItemPurchased, ItemRating
+FROM store_sales
+ORDER BY ItemRating
+LIMIT 1;
+```
+
+### 10. Which gender has the most previous purchases?
+
+```SQL
+SELECT Gender, COUNT(PreviousPurchases) AS "Previous Purchase"
+FROM store_sales
+GROUP BY Gender
+ORDER BY COUNT(PreviousPurchases) DESC
+LIMIT 1;
+```
+
+### 11. What gender got the most dumbbells?
+
+```SQL
+SELECT  Gender, Sum(Amount)
+FROM store_sales
+WHERE ItemPurchased = 'Dumbbells'
+GROUP BY Gender
+ORDER BY SUM(Amount) DESC
+LIMIT 1;
+```
