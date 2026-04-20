@@ -17,7 +17,7 @@ LIMIT 1;
 ```
 <img width="206" height="53" alt="1" src="https://github.com/user-attachments/assets/df8f55dd-ca55-4c17-a3f7-4c9597b08867" />
 
-### 2. What gender brought in the most sales?
+### 2. Which gender brought in the most sales?
 
 ```SQL
 SELECT Gender, SUM(Amount) AS "Total Amount"
@@ -26,7 +26,7 @@ GROUP BY Gender
 ORDER BY SUM(Amount) DESC
 LIMIT 1;
 ```
-
+<img width="160" height="60" alt="2" src="https://github.com/user-attachments/assets/0eaa3ee2-4e46-463f-b128-fac21bf35a84" />
 
 ### 3. What product did the male customer buy the most?
 
@@ -52,6 +52,7 @@ LIMIT 4;
 ```
 <img width="222" height="138" alt="4" src="https://github.com/user-attachments/assets/0b2c890f-fa1d-4ea2-ba2e-d7fd5c860b76" />
 
+
 ### 5. What season brought in sales of over 370000?
 
 ```SQL
@@ -61,6 +62,7 @@ GROUP BY Season
 HAVING SUM(Amount) > 370000;
 ```
 <img width="171" height="59" alt="5" src="https://github.com/user-attachments/assets/331f3786-16e6-4f33-9526-7174361c14cc" />
+
 
 ### 6. Did the customers pay by cash the most, or by payment on delivery?
 
@@ -73,7 +75,8 @@ LIMIT 1;
 ```
 <img width="213" height="59" alt="6" src="https://github.com/user-attachments/assets/141fc5b5-366b-4a1f-8c30-96ec3169d76c" />
 
-### 7. What gender paid with cash on delivery the most?
+
+### 7. Which gender paid with cash on delivery the most?
 
 ```SQL
 SELECT PaymentMethod, Gender, SUM(Amount) AS "Total Amount"
@@ -84,6 +87,7 @@ ORDER BY SUM(Amount) DESC
 LIMIT 1;
 ```
 <img width="298" height="53" alt="7" src="https://github.com/user-attachments/assets/d70b40bd-2557-46f6-a5d6-d16a54daa6f1" />
+
 
 ### 8. What season of the year did the female customers shop the most?
 
@@ -98,7 +102,7 @@ LIMIT 1;
 <img width="167" height="61" alt="8" src="https://github.com/user-attachments/assets/2aebb659-3196-4423-915e-5dbd5edfad20" />
 
 
-### 9. Which gproduct rated the lowest?
+### 9. What product rated the lowest?
 
 ```SQL
 SELECT ItemPurchased, ItemRating
@@ -119,7 +123,7 @@ LIMIT 1;
 ```
 <img width="190" height="53" alt="10" src="https://github.com/user-attachments/assets/27c7af8a-aed6-4ec1-8b72-2ca841af5e6a" />
 
-### 11. What gender got the most dumbbells?
+### 11. Which gender got the most dumbbells?
 
 ```SQL
 SELECT  Gender, Sum(Amount)
